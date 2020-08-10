@@ -1,0 +1,24 @@
+.flex-container {
+  margin: 10px auto;
+  width: 60%;
+}
+
+.card-comment {
+  margin-top: 16px;
+}
+
+mat-grid-list {
+  margin-top: 10px;
+}
+#sticky-actions {
+  left: 10%;
+  top: 10%;
+  position: fixed;
+
+  & button {
+    margin-left: 8px;
+  }
+  & .row {
+    margin-top: 8px;
+  }
+}

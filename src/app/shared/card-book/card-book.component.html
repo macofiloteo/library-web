@@ -1,0 +1,29 @@
+<div style="width: 100%;">
+  <mat-card>
+    <mat-card-title style="display: flex;">
+      {{ book?.title }}
+      <span class="book-author">by: {{ book?.author }}</span></mat-card-title
+    >
+    <mat-card-subtitle>
+      <div *ngIf="book?.status !== 'Checked Out'; else checkout">
+        <span
+          class="book-status"
+          [ngClass]="{
+            available:
+              book?.status === 'Available' || book?.status === 'Digital Copy',
+            damaged: book?.status === 'Damaged'
+          }"
+        >
+          {{ book?.status }}</span
+        >
+        at {{ book?.location }}
+      </div>
+      <ng-template #checkout>
+        <span class="book-status checkout">Checked Out</span> By
+        {{ book?.checkedOutBy }} during
+        {{ book?.checkOutDate | date: "medium" }}
+      </ng-template>
+      <div>Owned by {{ book?.owner }}</div>
+    </mat-card-subtitle>
+  </mat-card>
+</div>

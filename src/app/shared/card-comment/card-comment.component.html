@@ -1,0 +1,14 @@
+<mat-card class="card-comment">
+  <mat-card-header>
+    <mat-card-title>{{ comment.user }}</mat-card-title>
+    <mat-card-subtitle>{{
+      comment.timestamp | date: "medium"
+    }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content class="card-comment-content">
+    <p>
+      {{ comment.content }}
+    </p>
+  </mat-card-content>
+</mat-card>

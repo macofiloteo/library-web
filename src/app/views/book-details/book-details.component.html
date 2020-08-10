@@ -1,0 +1,75 @@
+<div class="flex-container">
+  <card-book [book]="book"></card-book>
+  <div
+    class="content"
+    fxLayout="row wrap"
+    fxLayoutGap="16px"
+    *ngIf="comments"
+    fxLayoutAlign="center center"
+  >
+    <div
+      class="card-comment"
+      fxFlex.sm="100%"
+      fxFlex="48%"
+      *ngFor="let comment of comments"
+    >
+      <card-comment [comment]="comment"></card-comment>
+    </div>
+  </div>
+</div>
+
+<div id="sticky-actions">
+  <div class="row">
+    <button
+      mat-fab
+      color="accent"
+      aria-label="Add a comment here!"
+      (click)="openAddCommentDialog()"
+      [disabled]="isLoading"
+    >
+      <mat-icon>comment</mat-icon>
+    </button>
+    <button
+      mat-fab
+      color="accent"
+      aria-label="Update a book here!"
+      (click)="openEditBookDialog()"
+      [disabled]="isLoading"
+    >
+      <mat-icon>create</mat-icon>
+    </button>
+  </div>
+  <div class="row">
+    <button
+      *ngIf="book?.status !== 'Checked Out'"
+      mat-fab
+      color="accent"
+      aria-label="Checkout a book!"
+      (click)="openCheckoutDialog()"
+      [disabled]="isLoading"
+    >
+      <mat-icon>add_shopping_cart</mat-icon>
+    </button>
+
+    <button
+      *ngIf="book?.status === 'Checked Out'"
+      mat-fab
+      color="accent"
+      aria-label="Return a book!"
+      (click)="returnBook()"
+      [disabled]="isLoading"
+    >
+      <mat-icon>replay</mat-icon>
+    </button>
+
+    <button
+      mat-fab
+      color="accent"
+      aria-label="Delete a book!"
+      (click)="deleteBook()"
+      [disabled]="isLoading"
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</div>

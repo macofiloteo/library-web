@@ -1,0 +1,22 @@
+.book-author {
+  font-size: small;
+  color: rgba(255, 255, 255, 0.7);
+  margin-left: 5px;
+}
+
+.mat-card {
+  cursor: pointer;
+}
+
+span.book-status {
+  &.available,
+  &.digital-copy {
+    color: lightgreen;
+  }
+  &.damaged {
+    color: lightsalmon;
+  }
+  &.checkout {
+    color: red;
+  }
+}

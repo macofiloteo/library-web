@@ -1,0 +1,43 @@
+<div class="dialog-container">
+  <h1 mat-dialog-title>Edit a book to the system!</h1>
+  <div mat-dialog-content>
+    <form [formGroup]="editBookForm">
+      <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Author</mat-label>
+        <input matInput formControlName="author" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Owner</mat-label>
+        <input matInput formControlName="owner" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status">
+          <mat-option *ngFor="let status of statuses" value="{{status}}">
+            {{status}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Location</mat-label>
+        <mat-select formControlName="location">
+          <mat-option *ngFor="let location of locations" value="{{location}}">
+            {{location}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </div>
+  <div mat-dialog-actions class="form-actions">
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="editBookForm.value" cdkFocusInitial>
+      Ok
+    </button>
+  </div>
+</div>

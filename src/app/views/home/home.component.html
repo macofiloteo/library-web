@@ -1,0 +1,19 @@
+<div class="flex-container">
+  <div
+    class="card-book"
+    *ngFor="let book of books; let index"
+    (click)="goToBookDetail(book.id)"
+  >
+    <card-book [book]="book"></card-book>
+  </div>
+</div>
+<div id="sticky-actions">
+  <button
+    mat-fab
+    color="accent"
+    aria-label="Add books here!"
+    (click)="openAddBookDialog()"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
